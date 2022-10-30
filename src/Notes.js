@@ -9,17 +9,17 @@ const Notes = ({data, datas, setDatas, setEditData}) => {
      }
      
    })
-   setDatas(newData)
-   setEditData(id);
+   setDatas(newData);
+   setEditData(id); 
 
   }
 
 const hendelEdit = (id) =>{
-  console.log(id)
+  
   datas.filter((data) =>{
     if(data.id === id){
-      document.getElementById('Edit-title').value=data.title;
-      document.getElementById('Edit-description').value=data.description;
+      document.getElementById("edittitle").value=data.title;
+      document.getElementById("editdescription").value=data.description;
     }
   })
 

@@ -3,8 +3,8 @@ import React from 'react';
 const EditModal = ({editData, datas, setDatas}) => {
 
   const updateHendel = () =>{
-   const newdtae= datas.map((note)=>{
-      console.log(note);
+    datas.map((data)=>{
+      console.log(data);
     })
   }
   
@@ -21,12 +21,12 @@ const EditModal = ({editData, datas, setDatas}) => {
             <form >
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Edit Title</label>
-                    <input type="Title" className="form-control" id="Edit-title" placeholder='Enter your Title' />
+                    <input type="Title" className="form-control" id="edittitle" placeholder='Enter your Title' />
                     
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label">Edit Description</label>
-                    <textarea className='form-control' name="description" id="Edit-description"  rows="3" placeholder='Enter your Description'></textarea>
+                    <textarea className='form-control' name="description" id="editdescription"  rows="3" placeholder='Enter your Description'></textarea>
                 </div>
                 
                 
