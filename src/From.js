@@ -2,19 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Notes from './Notes';
 
 
-const From = () => {
-    const getDataFrom = () =>{
-        const data = localStorage.getItem('datas')
-        if(data) {
-          return JSON.parse(data);
-        }
-        else{
-          return []
-        }
-      }
+const From = ({editData, setEditData, datas, setDatas  }) => {
+    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [datas, setDatas] = useState(getDataFrom);
+    
 
 
     useEffect( () =>{
@@ -36,7 +28,7 @@ const From = () => {
           setDatas([...datas, data]);
           setTitle('');
           setDescription('');
-          console.log(data)
+          
     }
 
 
@@ -49,12 +41,12 @@ const From = () => {
                <form onSubmit={handelAddItem} style={{border:"2px solid #ced4da", borderRadius:"10px", padding:"30px"}}>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Title</label>
-                    <input onChange={(e) => setTitle(e.target.value)} value={title} type="Title" className="form-control" id="title" placeholder='Enter your Title' />
+                    <input onChange={(e) => setTitle(e.target.value)} value={title} type="Title" className="form-control" id="title" placeholder='Enter your Title' required />
                     
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label">Description</label>
-                    <textarea onChange={(e) => setDescription(e.target.value)} value={description} className='form-control' name="description" id="description"  rows="3" placeholder='Enter your Description'></textarea>
+                    <textarea onChange={(e) => setDescription(e.target.value)} value={description} className='form-control' name="description" id="description"  rows="3" placeholder='Enter your Description' required></textarea>
                 </div>
                 
                 <button type="submit" className="btn btn-primary">Add Note</button>
@@ -76,7 +68,7 @@ const From = () => {
                 </div>
               </div> : datas.map((data)=>{
                   return(
-                      <Notes data={data} key={data.id}/>
+                      <Notes editData= {editData} setEditData={setEditData} data={data} datas= {datas} setDatas={setDatas} key={data.id}/>
                   )
               })
             }

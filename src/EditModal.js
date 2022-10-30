@@ -1,6 +1,13 @@
 import React from 'react';
 
-const EditModal = () => {
+const EditModal = ({editData, datas, setDatas}) => {
+
+  const updateHendel = () =>{
+   const newdtae= datas.map((note)=>{
+      console.log(note);
+    })
+  }
+  
   return (
     <>
       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -14,19 +21,19 @@ const EditModal = () => {
             <form >
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Edit Title</label>
-                    <input type="Title" className="form-control" id="title" placeholder='Enter your Title' />
+                    <input type="Title" className="form-control" id="Edit-title" placeholder='Enter your Title' />
                     
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label">Edit Description</label>
-                    <textarea className='form-control' name="description" id="description"  rows="3" placeholder='Enter your Description'></textarea>
+                    <textarea className='form-control' name="description" id="Edit-description"  rows="3" placeholder='Enter your Description'></textarea>
                 </div>
                 
                 
             </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Edit Note</button>
+              <button onCanPlay={updateHendel} type="button" className="btn btn-primary" data-bs-dismiss="modal">Edit Note</button>
               
             </div>
           </div>
